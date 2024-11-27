@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "66fc75b4-6768-49b4-ba57-46d67fda4808",
+		"name": "Rick Y Morty",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39996052"
+	},
+	"item": [
+		{
+			"name": "Todos los personajes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rickandmortyapi.com/api/character",
+					"protocol": "https",
+					"host": [
+						"rickandmortyapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"character"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solo un personaje",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response body is not empty\", function () {",
+							"    pm.response.to.not.be.oneOf([null, \"\"]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rickandmortyapi.com/api/character/1",
+					"protocol": "https",
+					"host": [
+						"rickandmortyapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"character",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar personajes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rickandmortyapi.com/api/character/?status=alive",
+					"protocol": "https",
+					"host": [
+						"rickandmortyapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"character",
+						""
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "alive"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
